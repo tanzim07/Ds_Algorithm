@@ -13,6 +13,27 @@
  * ------------------------
  */
 
+/*
+704. Binary Search
+
+Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+ 
+
+Example 1:
+
+Input: nums = [-1,0,3,5,9,12], target = 9
+Output: 4
+Explanation: 9 exists in nums and its index is 4
+Example 2:
+
+Input: nums = [-1,0,3,5,9,12], target = 2
+Output: -1
+Explanation: 2 does not exist in nums so return -1
+*/
+
 // const testArr = [  2, 3, 5, 7, 8, 10, 13, 15, 18, 29, 30, 34, 38, 39, 41, 43, 45, 49, 56, 58, 58];
 const testArr = [2, 3, 3, 3, 3, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 9, 9, 9, 9, 10];
 
@@ -70,8 +91,7 @@ function binarySearch2(arr, search) {
 // return binarySearch(arr, search);
 console.log(binarySearch2(dscArr, 7));
 
-// Floor 
-
+// Floor
 function floor(nums, target) {
   let start = 0;
   let end = nums.length - 1;
@@ -93,6 +113,7 @@ function floor(nums, target) {
 }
 
 console.log(floor(testArr, 3));
+
 // Ceiling
 function ceil(nums, target) {
   let start = 0;
