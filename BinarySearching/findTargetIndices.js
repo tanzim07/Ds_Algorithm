@@ -46,20 +46,51 @@ The index where nums[i] == 5 is 4.
  */
 const nums = [1, 2, 5, 2, 3];
 const target = 2;
+
+function binarySearch(lists, sorted, start, end, target) {
+  if (start > end) return;
+
+  const mid = start + Math.floor((end - start) / 2);
+
+  if (sorted[mid] === target) {
+    lists.push(mid);
+  }
+
+  binarySearch(lists, sorted, start, mid - 1, target);
+  binarySearch(lists, sorted, mid + 1, end, target);
+}
+
 var targetIndices = function (nums, target) {
-    const sortedNums = nums.sort((a, b) => a - b);
-                // 1,2,2,3,5  s - 1 e - 5 m - 2
-  const targetIndices = [];
-  let start = 0;
-  let end = nums.length - 1;
-  while (start <= end) {
-      let mid = Math.floor((start + end) / 2);
-      if (sortedNums[mid] === target) {
-            targetIndices.push(mid);
-            break;
-      }
-      
+  let index = [];
+  nums.sort((a, b) => a - b);
+  if (!nums.includes(target)) return [];
+
+  binarySearch(index, nums, 0, nums.length - 1, target);
+  return index.sort((a, b) => a - b);
+};
+
+
+var targetIndices = function (nums, target) {
+  let lownums = (repeat = 0);
+  for (i = 0; i < nums.length; i++) {
+    if (nums[i] < target) {
+      lownums++;
+    }
+    if (nums[i] == target) {
+      repeat++;
+    }
+  }
+  let arr = [];
+
+  if (repeat < 1) {
+    return arr;
+  } else {
+    for (i = 0; i < repeat; i++) {
+      arr.push(lownums + i);
+    }
+    return arr;
   }
 };
+
 
 console.log(targetIndices(nums, target));
