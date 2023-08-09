@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon BinarySearching/findTargetIndices.js"
+    "start": "nodemon BinarySearching/findTargetIndices.js",
+    "dev": "nodemon practice/test1.js"
   },
   "keywords": [],
   "author": "",
